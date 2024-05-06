@@ -5,20 +5,18 @@ class MedianFinder:
         self.r = 0
 
     def addNum(self, num: int) -> None:
-        if not self.nums:
-            pass
-        elif self.l != self.r:
-            self.l+=1
+        if self.nums:
+            if self.l != self.r:
+                self.l+=1
+            else:
+                self.r+=1
+            self.insertElement(num)
         else:
-            self.r+=1
-        self.insertElement(num)
+            self.nums.append(num)
 
     def insertElement(self, elem):
         N = len(self.nums)
         l,r = 0, N - 1
-
-        if not self.nums:
-            self.nums.append(elem)
 
         while l <= r:
             mid = (l+r)//2
