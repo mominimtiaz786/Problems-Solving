@@ -3,6 +3,5 @@ class Solution:
         N = len(nums)
         output = [-1] * (2*N)
         for i in range(N):
-            output[i] = nums[i]
-            output[i+N] = nums[i]
+            output[i] =  output[i+N] = nums[i]
         return output
