@@ -10,9 +10,10 @@ class Solution:
     
     def calcSum(self, grid):
         SUM = 0
+        Cols = len(grid[0])
+
         for row in grid:
-            strRow = [str(n) for n in row]
-            SUM+=int(''.join(strRow), 2)
+            SUM+=sum([row[i]*(2**(Cols-i-1)) for i in range(Cols)])
         
         return SUM
 
