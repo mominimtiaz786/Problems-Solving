@@ -21,12 +21,11 @@ class Solution:
         Cols = len(grid[0])
 
         for row in grid:
-            if not row[0]:
-                self.invertRow(row)
+            if not row[0]:  self.invertRow(row)
         
-        for i in range(Cols):
-            if sum([grid[r][i] for r in range(Rows)]) < Rows/2:
-                self.invertCol(i, grid)
+        for j in range(Cols):
+            if sum([grid[i][j] for i in range(Rows)]) < Rows/2:
+                self.invertCol(j, grid)
 
 
         return self.calcSum(grid)
