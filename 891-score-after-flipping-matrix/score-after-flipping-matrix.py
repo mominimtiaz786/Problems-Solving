@@ -17,7 +17,6 @@ class Solution:
         return SUM
 
     def matrixScore(self, grid: List[List[int]]) -> int:
-        totalSum = 0
         Rows = len(grid)
         Cols = len(grid[0])
 
