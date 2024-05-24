@@ -9,7 +9,6 @@ class Solution:
             if wordsLetterCounter[letter] > lettersCount.get(letter, 0):
                 return False
 
-        print(words, lettersCount, "Valid")
         return True
 
     def maxScoreWords(self, words: List[str], letters: List[str], score: List[int]) -> int:
@@ -17,15 +16,10 @@ class Solution:
         letters = set(letters)
         N = len(words)
 
-        lettersScoreDict = dict()
-        for i in range(26):
-            letterOrd = i+ ord('a')
-            letter = chr(letterOrd)
-            if letter in letters:
-                lettersScoreDict[letter] = score[i]
-            else:
-                lettersScoreDict[letter] = -float('inf')
-
+        lettersScoreDict = {
+            chr(i + ord('a')): score[i] if chr(i + ord('a')) in letters else -float('inf')
+            for i in range(26)
+        }
 
         wordScores = [
             sum([lettersScoreDict[ch] for ch in word]) 
