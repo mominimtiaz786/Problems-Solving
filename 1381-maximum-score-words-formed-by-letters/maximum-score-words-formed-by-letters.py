@@ -1,9 +1,22 @@
 class Solution:
+    # def checkIsValid(self, words, lettersCount):
+    #     wordsLetterCounter = dict()
+    #     for word in words:
+    #         for ch in word:
+    #             wordsLetterCounter[ch] = wordsLetterCounter.get(ch,0) + 1
+
+    #     for letter in wordsLetterCounter:
+    #         if wordsLetterCounter[letter] > lettersCount.get(letter, 0):
+    #             return False
+
+    #     return True
+    
     def checkIsValid(self, words, lettersCount):
-        wordsLetterCounter = dict()
+        wordsLetters = []
         for word in words:
-            for ch in word:
-                wordsLetterCounter[ch] = wordsLetterCounter.get(ch,0) + 1
+            wordsLetters= wordsLetters + [ch for ch in word]
+        wordsLetterCounter = Counter(wordsLetters)
+        
 
         for letter in wordsLetterCounter:
             if wordsLetterCounter[letter] > lettersCount.get(letter, 0):
