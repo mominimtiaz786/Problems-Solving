@@ -1,10 +1,4 @@
 class Solution:
-    def findGreater(self, n1, n2):
-        s1,s2 = str(n1), str(n2)
-        
-        return n1 if s1+s2 > s2+s1 else n2
-
-
     def largestNumber(self, nums: List[int]) -> str:
         nums = [str(num) for num in nums]
 
