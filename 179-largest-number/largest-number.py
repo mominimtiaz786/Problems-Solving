@@ -6,6 +6,8 @@ class Solution:
 
 
     def largestNumber(self, nums: List[int]) -> str:
+        nums = [str(num) for num in nums]
+
         nums_dict = {}
 
         for n in nums:
@@ -14,16 +16,16 @@ class Solution:
         req_str = ''
 
         while nums_dict:
-            largest = -1
+            largest = "0"
 
             for n in nums_dict:
-                largest = self.findGreater(n, largest)
+                largest = largest if largest + n > n + largest else n
             
-            req_str+=str(largest)
+            req_str+=largest
             nums_dict[largest]-=1
 
             if not nums_dict[largest]:
-                del  nums_dict[largest]
+                del nums_dict[largest]
         
 
         return str(int(req_str))
