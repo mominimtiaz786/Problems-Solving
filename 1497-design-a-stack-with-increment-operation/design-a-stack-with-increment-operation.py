@@ -11,10 +11,8 @@ class CustomStack:
         
 
     def pop(self) -> int:
-        if self.stack:
-            return self.stack.pop()
-        else:
-            return -1
+        return self.stack.pop() if self.stack else -1
+
 
     def increment(self, k: int, val: int) -> None:
         k = min(k, len(self.stack))
