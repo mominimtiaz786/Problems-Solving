@@ -1,15 +1,9 @@
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        sorted_arr = sorted(arr)
+        sorted_arr = sorted(list(set(arr)))
 
-        hashmap = {}
+        hashmap = {ele: i+1 for i, ele in enumerate(sorted_arr)}
 
-        rank = 1
-        for ele in sorted_arr:
-            if not ele in hashmap:
-                hashmap[ele] = rank
-                rank+=1
-        
         return [
            hashmap[ele]
            for ele in arr 
