@@ -8,8 +8,6 @@ class Solution:
             adj_list[i].append(j)
             adj_list[j].append(i)
 
-        if not adj_list:
-            return [(n%4)+1 for i in range(n)]
 
         possible_flowers = [1,2,3,4]
         for i in range(1, n+1):
