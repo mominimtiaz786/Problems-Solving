@@ -24,7 +24,6 @@ class Solution:
 
         
         result = _searchTarget(start, end, target)
-        print("POINT1",result)
         if result == -1:    return [-1, -1]
 
 
