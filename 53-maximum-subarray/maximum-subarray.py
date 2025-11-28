@@ -1,5 +1,5 @@
 class Solution:
-    #Brute Force -> Time Limit Exceeding
+    #Kandan algorithm
     def maxSubArray(self, nums: List[int]) -> int:
         N = len(nums)
 
@@ -7,16 +7,9 @@ class Solution:
 
         curr = 0
         for i in range(N):
-            if curr + nums[i] > nums[i]:
-                curr+=nums[i]
-            else:
-                curr = nums[i]
+            curr = max(curr + nums[i], nums[i])
             ans = max(ans, curr)
 
             
         return ans
-
-
-    def maxSubArray1(self, nums: List[int]) -> int:
-        N = len(nums)
 
