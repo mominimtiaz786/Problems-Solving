@@ -3,7 +3,7 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         N = len(nums)
 
-        ans = float('-inf')
+        ans = nums[0]
 
         curr = 0
         for i in range(N):
