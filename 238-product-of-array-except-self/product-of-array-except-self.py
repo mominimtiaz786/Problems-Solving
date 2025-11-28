@@ -6,13 +6,15 @@ class Solution:
         suffix_product = 1
         resultant_array = [1]*N
 
-
-        for i in range(1, N):
+        i,j=1,N-2
+        while i<N:
             prefix_product = prefix_product*nums[i-1]
             resultant_array[i] = resultant_array[i]*prefix_product
 
-            suffix_product = suffix_product*nums[N-i]
-            resultant_array[N-i-1]= resultant_array[N-i-1]*suffix_product
+            suffix_product = suffix_product*nums[j+1]
+            resultant_array[j]= resultant_array[j]*suffix_product
+            i+=1
+            j-=1
 
 
 
