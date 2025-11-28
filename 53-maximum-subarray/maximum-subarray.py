@@ -7,7 +7,10 @@ class Solution:
 
         curr = 0
         for i in range(N):
-            curr = max(curr + nums[i], nums[i])
+            if curr + nums[i] > nums[i]:
+                curr+=nums[i]
+            else:
+                curr = nums[i]
             ans = max(ans, curr)
 
             
