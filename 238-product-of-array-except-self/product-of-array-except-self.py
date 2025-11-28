@@ -2,10 +2,9 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         N = len(nums)
 
-        prefix_product, suffix_product = 1,1
-        resultant_array = [1]*N
-
+        prefix_product, suffix_product, resultant_array = 1,1, [1]*N
         i,j=1,N-2
+
 
         while i<N:
             prefix_product = prefix_product*nums[i-1]
