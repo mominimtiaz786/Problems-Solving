@@ -1,20 +1,17 @@
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
-        N = len(nums)
-        
         frequency = {num: 0 for num in nums}
-
 
         for num in nums:    frequency[num]+=1
         
 
         max_freq = max(list(frequency.values()))
         if max_freq == 1:   return 1
-        
+
         max_freq_elems = [num for num, freq in frequency.items() if freq == max_freq]
 
 
-        sub_array_length = float('inf')
+        min_sub_array_length = float('inf')
         for max_freq_num in max_freq_elems:
             i = 0
             while nums[i] != max_freq_num:
@@ -28,9 +25,9 @@ class Solution:
                 i+=1
             
 
-            sub_array_length = min(i - start, sub_array_length)
+            min_sub_array_length = min(i - start, min_sub_array_length)
 
-        return sub_array_length
+        return min_sub_array_length
 
 
 
