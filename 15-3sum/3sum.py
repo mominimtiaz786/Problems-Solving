@@ -7,6 +7,7 @@ class Solution:
         hashmap = {num:i for i, num in enumerate(nums)}
 
         for i in range(N-2):
+            if nums[i] > 0: break
             if i and nums[i] == nums[i-1]:  continue
 
             two_sum = -nums[i]
