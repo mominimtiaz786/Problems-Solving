@@ -2,6 +2,7 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         ans = []
         N = len(nums)
+        if min(nums) > 0:   return ans
 
         nums.sort()
         hashmap = {num:i for i, num in enumerate(nums)}
