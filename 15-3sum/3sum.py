@@ -4,38 +4,20 @@ class Solution:
         N = len(nums)
 
         nums.sort()
+        hashmap = {num:i for i, num in enumerate(nums)}
 
         for i in range(N-2):
+            if i and nums[i] == nums[i-1]:  continue
 
-            if nums[i] > 0: break
-            if i and nums[i-1] == nums[i]:  continue
+            two_sum = -nums[i]
 
-            target = -nums[i]
+            for j in range(i+1, N-1):
+                if j > i+1 and nums[j] == nums[j-1]:    continue
 
-            j = i+1
-            k = N-1
+                target = two_sum - nums[j]
+                if hashmap.get(target, -1) > j:
+                    triplet = [nums[i], nums[j], target]
+                    ans.append(triplet)
 
-            while j<k:
-                
-                if nums[j] + nums[k] == target:
-                    ans.append([-target, nums[j], nums[k]])
-                    j+=1
-                    while j<k and nums[j] == nums[j-1]:
-                        j+=1
-                    
-                    k-=1
-                    while j<k and nums[k] == nums[k+1]:
-                        k-=1
-                    
-                elif nums[j] + nums[k] < target:
-                    j+=1
-                    while j<k and nums[j] == nums[j-1]:
-                        j+=1
-
-                else:
-                    k-=1
-                    while j<k and nums[k] == nums[k+1]:
-                        k-=1
-                
-        return ans
         
+        return ans
