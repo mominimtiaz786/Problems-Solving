@@ -1,25 +1,26 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        N = len(s)
-        reversed_string = ""
+        # N = len(s)
+        # reversed_string = ""
 
-        i=0
-        j=0
+        # i=0
+        # j=0
 
-        while j<N and i<N:
-            while i<N and s[i]==" ": i+=1
-            if i == N:  break
+        # while j<N and i<N:
+        #     while i<N and s[i]==" ": i+=1
+        #     if i == N:  break
 
-            j=i
-            while j<N and s[j]!=" ":
-                j+=1
+        #     j=i
+        #     while j<N and s[j]!=" ":
+        #         j+=1
             
-            word = s[i:j]
-            reversed_string = (word+" "+reversed_string) if reversed_string else (word)
+        #     word = s[i:j]
+        #     reversed_string = (word+" "+reversed_string) if reversed_string else (word)
 
-            i=j
+        #     i=j
         
-        return reversed_string
+        # return reversed_string
 
+        return " ".join([word for word in s.split() if word != " "][::-1])
 
         
