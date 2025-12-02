@@ -15,12 +15,10 @@ class Solution:
         while found and i < G_s:
             found = False
             req = g[i]
-            while j< N_s:
+            while j< N_s and not found:
                 if req <= s[j]:
                     found=True
                     children_content+=1
-                    j+=1
-                    break
                 j+=1
             i+=1
         
