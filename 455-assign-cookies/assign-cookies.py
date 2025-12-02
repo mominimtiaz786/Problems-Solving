@@ -11,7 +11,8 @@ class Solution:
 
         i,j = 0,0
 
-        while i < G_s and j < N_s:
+        found = True
+        while found and i < G_s:
             found = False
             req = g[i]
             while j< N_s:
@@ -22,7 +23,6 @@ class Solution:
                     break
                 j+=1
             i+=1
-            if not found:   break
         
 
 
