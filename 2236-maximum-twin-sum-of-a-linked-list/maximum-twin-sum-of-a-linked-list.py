@@ -43,8 +43,16 @@ class Solution:
         first_half = head
 
         ptr = head
-        for i in range(half_count-1):
+        twin_sums = [0]*half_count
+        for i in range(half_count):
+            twin_sums[i] = ptr.val
             ptr = ptr.next
+        
+        for i in range(half_count):
+            twin_sums[-(i+1)]+=ptr.val
+            ptr = ptr.next
+
+        return max(twin_sums)
 
         second_half = None
         second_half = ptr.next
