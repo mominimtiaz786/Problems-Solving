@@ -17,7 +17,7 @@ class Solution:
         curr, nex = head, head.next
 
         while nex:
-            divisor = self.gcd(curr.val, nex.val)
+            divisor = math.gcd(curr.val, nex.val)
 
             tmp = ListNode(val=divisor, next=nex)
             curr.next = tmp
