@@ -7,10 +7,12 @@ class Solution:
     def findDivisor(self, n1, n2):
         n1, n2 = (n1, n2) if n1 < n2 else (n2, n1)
         divisor = 1
-        for i in range(n1, 1, -1):
-            if n1 % i == 0 and n2 % i == 0:
-                divisor=i
-                break
+        for i in range(1, n1+1):
+            if n1 % i == 0:
+                num = n1//i
+                if n2 % num == 0:
+                    divisor = num
+                    break
 
         return divisor
 
