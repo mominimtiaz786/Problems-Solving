@@ -33,11 +33,7 @@ class Solution:
         if not head:    return True
         if not head.next:   return True
 
-        # O(n) tc and O(1) sc solution
         nodes_count = self.nodesCounter(head)
-        
-
-        is_even = (nodes_count % 2 == 0)
         half_count = nodes_count // 2
 
         first_half = head
