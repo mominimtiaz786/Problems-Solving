@@ -11,7 +11,7 @@ class Solution:
             n = 0
             while x:
                 n+=((x%10)**2)
-                x = x//10
+                x//=10
 
 
         return False
