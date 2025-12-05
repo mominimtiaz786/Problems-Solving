@@ -4,8 +4,6 @@ class Solution:
         if N <= 2:  return N
 
         max_count = 0
-
-        max_count = 0
         for elem in ['F','T']:
             i = 0
             wrong = 0   
