@@ -7,7 +7,7 @@ class Solution:
         if not friends:   return []
         
         queue = [id]
-        my_set = set([id])
+        my_set = set(queue)
 
         for i in range(level):
             queue_l = len(queue)
@@ -24,8 +24,8 @@ class Solution:
         for fr in queue:
             ans+=watchedVideos[fr]
 
-        freq = {v:0 for v in ans}
-        for v in ans:
+        freq = defaultdict(int)
+        for v in ans:   
             freq[v]+=1
 
         ans = list(set(ans))
