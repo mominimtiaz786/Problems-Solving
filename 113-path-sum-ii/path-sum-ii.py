@@ -6,7 +6,6 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-
         if not root:    return []
 
         is_child = not root.left and not root.right
@@ -15,9 +14,14 @@ class Solution:
             return [[root.val]]
         
 
+        paths = []
 
-        paths = self.pathSum(root.left, targetSum-root.val) + self.pathSum(root.right, targetSum-root.val)
-
+        if root.left:
+            paths+=self.pathSum(root.left, targetSum-root.val)
+        
+        if root.right:
+            paths+=self.pathSum(root.right, targetSum-root.val)
+        
         return [
             [root.val]+path for path in paths
         ]
