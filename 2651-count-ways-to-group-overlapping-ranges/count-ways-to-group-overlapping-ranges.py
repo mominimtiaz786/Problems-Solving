@@ -14,7 +14,7 @@ class Solution:
         
         count = len(non_overlapping_ranges)
 
-        return (2**count) % ((10**9) + 7)
+        return (2**count) % (10**9 + 7)
 
         
         
