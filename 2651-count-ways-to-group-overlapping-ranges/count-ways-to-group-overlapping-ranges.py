@@ -2,7 +2,6 @@ class Solution:
     def countWays(self, ranges: List[List[int]]) -> int:
         ranges.sort(key= lambda x: (x[0], x[1]))
 
-        print(ranges)
         non_overlapping_ranges = [ranges.pop(0)]
 
         while ranges:
