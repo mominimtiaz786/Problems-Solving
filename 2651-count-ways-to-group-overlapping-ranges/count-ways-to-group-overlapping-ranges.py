@@ -16,7 +16,8 @@ class Solution:
                 count+=1
         
 
-        return (2**count) % (self.MOD)
+        # print(math.log2(self.MOD))
+        return (((2**math.ceil(count/2)) % (self.MOD)) * ((2**math.floor(count/2)) % (self.MOD))) % self.MOD
 
         
         
