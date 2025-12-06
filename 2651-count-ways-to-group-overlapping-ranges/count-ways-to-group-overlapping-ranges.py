@@ -1,4 +1,5 @@
 class Solution:
+    MOD = 10**9 + 7
     def countWays(self, ranges: List[List[int]]) -> int:
         ranges.sort(key= lambda x: (x[0], x[1]))
 
@@ -15,7 +16,7 @@ class Solution:
                 count+=1
         
 
-        return (2**count) % (10**9 + 7)
+        return (2**count) % (self.MOD)
 
         
         
