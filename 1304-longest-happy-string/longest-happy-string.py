@@ -9,7 +9,7 @@ class Solution:
         for i in range(a+b+c):
 
             valid_choices = [
-                ch for ch in 'abc' if counter[ch]
+                ch for ch in 'abc'
                 if counter[ch] and 2*ch != last_two
                 ]
 
