@@ -1,9 +1,7 @@
 class Solution:
     def decodeString(self, s: str) -> str:
         N = len(s)
-        if N == 1:  return s
-
-        required_string = ""
+        if N < 4:  return s
 
         stack = []
         for i in range(N):
