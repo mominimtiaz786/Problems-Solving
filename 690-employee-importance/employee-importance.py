@@ -21,7 +21,8 @@ class Solution:
             emp = hashmap[q.pop(0)]
             total_importance+=emp.importance
 
-            q+=emp.subordinates
+            for subordinate in emp.subordinates:
+                q.append(subordinate)
         return total_importance
 
         
