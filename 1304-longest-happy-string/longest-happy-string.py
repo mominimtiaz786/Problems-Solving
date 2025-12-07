@@ -6,13 +6,17 @@ class Solution:
         req_string = ""
         last_two = ""
 
-        for i in range(a+b+c):
+        chars = "".join(sorted(
+            [ch for ch in 'abc' if counter[ch]],
+            key = lambda x: (counter[x], x),
+            reverse = True
+        ))
 
+        for i in range(a+b+c):
             valid_choices = [
-                ch for ch in 'abc'
+                ch for ch in chars
                 if counter[ch] and 2*ch != last_two
                 ]
-
 
             if not valid_choices:   break
 
