@@ -1,36 +1,38 @@
+from typing import List
+
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-        N = len(nums) 
-        neg_count =0
-        freq = {}
+        freq = defaultdict(int)  
         ans = []
+        n = len(nums)
 
-        for i,n in enumerate(nums):
-            if n < 0:   neg_count+=1
-            freq[n] = freq.get(n,0) + 1
+        neg_count = 0
 
+        for i, val in enumerate(nums):
+            freq[val] += 1
+            if val < 0:
+                neg_count += 1
 
-            if i>=k:
-                elem = nums[i-k]
-                freq[elem]-=1
-                if elem < 0:    neg_count-=1
+            if i >= k:
+                out = nums[i - k]
+                freq[out] -= 1
+                if out < 0:
+                    neg_count -= 1
 
-            if i+1>=k:            
+            if i + 1 >= k:
                 if neg_count < x:
                     ans.append(0)
-                    continue
-
-                arr = sorted(
-                    [(key,val) for key,val in freq.items() if val],
-                    key= lambda x: (x[0], x[1])
-                )
-
-                j = 0
-                xi = x
-                while xi > arr[j][1]:
-                    xi-=arr[j][1]
-                    j+=1
-                ans.append(arr[j][0])
-                    
+                else:
+                    # find x-th smallest negative
+                    need = x
+                    beauty = 0
+                    for v in range(-50, 0):  # only negatives
+                        if not freq[v]: continue
+                        if freq[v] >= need:
+                            beauty = v
+                            break
+                        else:
+                            need -= freq[v]
+                    ans.append(beauty)
 
         return ans
