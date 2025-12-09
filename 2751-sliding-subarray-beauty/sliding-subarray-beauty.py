@@ -2,7 +2,7 @@ from typing import List
 
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-        freq = defaultdict(int)  
+        freq = {i:0 for i in range(-50,51)}
         ans = []
         n = len(nums)
 
