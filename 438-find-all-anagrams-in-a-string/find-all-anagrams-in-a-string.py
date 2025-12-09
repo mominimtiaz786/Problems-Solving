@@ -9,15 +9,16 @@ class Solution:
         p_freq = {ch:0 for ch in s+p}
         for ch in p:    p_freq[ch]+=1
 
-
+        i=0
         for j in range(NS):
             sliding_freq[s[j]]+=1
 
             if j>= NP:
-                sliding_freq[s[j-NP]]-=1
+                sliding_freq[s[i]]-=1
+                i+=1
                 
             if sliding_freq == p_freq:
-                ans.append(j-NP+1)
+                ans.append(i)
 
         return ans
 
