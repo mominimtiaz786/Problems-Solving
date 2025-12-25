@@ -5,7 +5,6 @@ class Solution:
         N = len(nums)
         DIGITS_COUNT = len(str(nums[0])) 
 
-
         nums = [str(n) for n in nums]
         
         for k in range(DIGITS_COUNT):
