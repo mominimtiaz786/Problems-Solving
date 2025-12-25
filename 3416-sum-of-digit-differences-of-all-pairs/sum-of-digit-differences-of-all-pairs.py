@@ -13,14 +13,7 @@ class Solution:
             for n in nums:
                 counts[int(n[k])]+=1
 
-
-            counts = [c*(N-c) for c in counts if c]
-
-            # p = 1
-            # for n in counts:
-            #     p*=n
-
-            res+=sum(counts)
+            res+=sum([c*(N-c) for c in counts if c])
         
 
         return res//2
